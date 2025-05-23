@@ -1,0 +1,572 @@
+{
+	"info": {
+		"_postman_id": "a5e6b9fb-3e19-4a11-a42a-7df8ce3e5c72",
+		"name": "Price Comparator API",
+		"description": "Collection for testing the Price Comparator API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product Endpoints",
+			"item": [
+				{
+					"name": "Get Best Discounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/products/best-discounts?limit=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"products",
+								"best-discounts"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Get products with the best discounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Best Value Per Unit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/products/best-value?category=lactate&limit=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"products",
+								"best-value"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "lactate"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Get products with the best value per unit (optional category filter)"
+					},
+					"response": []
+				},
+				{
+					"name": "Compare Product Prices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/products/compare?productName=lapte zuzu&date=2025-05-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"products",
+								"compare"
+							],
+							"query": [
+								{
+									"key": "productName",
+									"value": "lapte zuzu"
+								},
+								{
+									"key": "date",
+									"value": "2025-05-01"
+								}
+							]
+						},
+						"description": "Compare prices of a product across different stores"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Price History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/products/price-history/P001?store=lidl",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"products",
+								"price-history",
+								"P001"
+							],
+							"query": [
+								{
+									"key": "store",
+									"value": "lidl"
+								}
+							]
+						},
+						"description": "Get price history for a specific product"
+					},
+					"response": []
+				},
+				{
+					"name": "Optimize Shopping Basket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"P001\", \"P008\", \"P017\", \"P020\", \"P024\"]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7777/api/products/optimize-basket?date=2025-05-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"products",
+								"optimize-basket"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2025-05-01"
+								}
+							]
+						},
+						"description": "Optimize a shopping basket for cost savings"
+					},
+					"response": []
+				},
+				{
+					"name": "Get New Discounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/products/new-discounts?since=2025-05-08",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"products",
+								"new-discounts"
+							],
+							"query": [
+								{
+									"key": "since",
+									"value": "2025-05-08"
+								}
+							]
+						},
+						"description": "Get products with new discounts since a specific date"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for product-related operations"
+		},
+		{
+			"name": "Discount Endpoints",
+			"item": [
+				{
+					"name": "Get All Discounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/discounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"discounts"
+							]
+						},
+						"description": "Get all available discounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Discounts by Store",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/discounts/store/lidl",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"discounts",
+								"store",
+								"lidl"
+							]
+						},
+						"description": "Get discounts for a specific store"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Active Discounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/discounts/active?date=2025-05-05",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"discounts",
+								"active"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2025-05-05"
+								}
+							]
+						},
+						"description": "Get discounts active on a specific date"
+					},
+					"response": []
+				},
+				{
+					"name": "Get New Discounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/discounts/new?since=2025-05-08",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"discounts",
+								"new"
+							],
+							"query": [
+								{
+									"key": "since",
+									"value": "2025-05-08"
+								}
+							]
+						},
+						"description": "Get discounts added since a specific date"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Discounts by Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/discounts/category/lactate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"discounts",
+								"category",
+								"lactate"
+							]
+						},
+						"description": "Get discounts for a specific product category"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Discounts for Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/discounts/product/P001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"discounts",
+								"product",
+								"P001"
+							]
+						},
+						"description": "Get discounts for a specific product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Best Discounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/discounts/best?limit=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"discounts",
+								"best"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Get discounts with highest percentage across all stores"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products with Best Discounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/discounts/best-products?limit=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"discounts",
+								"best-products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Get products that have the highest percentage discounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Discount History",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/discounts/history/P001?store=lidl",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"discounts",
+								"history",
+								"P001"
+							],
+							"query": [
+								{
+									"key": "store",
+									"value": "lidl"
+								}
+							]
+						},
+						"description": "Get discount history for a specific product"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for discount-related operations"
+		},
+		{
+			"name": "Price Alert Endpoints",
+			"item": [
+				{
+					"name": "Create Price Alert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": \"P001\",\n    \"store\": \"lidl\",\n    \"targetPrice\": 9.0,\n    \"userId\": \"user123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7777/api/alerts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"alerts"
+							]
+						},
+						"description": "Create a new price alert for a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Alerts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/alerts?userId=user123&activeOnly=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"alerts"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "user123"
+								},
+								{
+									"key": "activeOnly",
+									"value": "false"
+								}
+							]
+						},
+						"description": "Get all price alerts, optionally filtered by user and active status"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Alert by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/alerts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"alerts",
+								"1"
+							]
+						},
+						"description": "Get a specific price alert by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Alert",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/alerts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"alerts",
+								"1"
+							]
+						},
+						"description": "Delete a price alert"
+					},
+					"response": []
+				},
+				{
+					"name": "Check All Alerts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7777/api/alerts/check",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7777",
+							"path": [
+								"api",
+								"alerts",
+								"check"
+							]
+						},
+						"description": "Check if any price alerts should be triggered"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for price alert operations"
+		}
+	]
+}
